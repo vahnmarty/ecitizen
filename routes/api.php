@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,10 @@ Route::post('/tokens/create', function (Request $request) {
     $token = \App\Models\User::first()->createToken($request->token_name);
  
     return ['token' => $token->plainTextToken];
+});
+
+Route::group(['prefix' => 'report'], function(){
+
+    Route::post('/emergency', [ReportController::class, 'emergency'])->name('report.emergency');
+    
 });
