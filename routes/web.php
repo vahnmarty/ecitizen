@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\RespondentDashboard;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EmergencyController;
 use App\Http\Livewire\Report\EmergencyDashboard;
@@ -31,5 +32,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('emergency/dashboard', EmergencyDashboard::class);
+Route::get('emergency/respondent-dashboard', RespondentDashboard::class);
 
 require __DIR__.'/auth.php';
