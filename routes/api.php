@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ReportController;
+use App\Http\Controllers\Api\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +31,9 @@ Route::group(['prefix' => 'report'], function(){
 
     Route::post('/emergency', [ReportController::class, 'emergency'])->name('report.emergency');
     
+});
+
+Route::group(['prefix' => 'services'], function(){
+    Route::get('/search', [ServiceController::class, 'search'])->name('services.search');
+    Route::get('/{id}-{slug?}', [ServiceController::class, 'show'])->name('services.show');
 });
