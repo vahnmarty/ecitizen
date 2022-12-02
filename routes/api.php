@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ReportController;
 use App\Http\Controllers\Api\ServiceController;
+use App\Http\Controllers\Api\BarangayController;
 use App\Http\Controllers\Api\DirectoryController;
 
 /*
@@ -44,5 +45,6 @@ Route::group(['prefix' => 'directory'], function(){
 });
 
 Route::group(['prefix' => 'barangay'], function(){
-    Route::get('/', [DirectoryController::class, 'index'])->name('barangay.index');
+    Route::get('/', [BarangayController::class, 'index'])->name('barangay.index');
+    Route::get('/{id}', [BarangayController::class, 'show'])->name('barangay.show');
 });
