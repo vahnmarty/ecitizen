@@ -42,3 +42,7 @@ Route::group(['prefix' => 'services'], function(){
 Route::group(['prefix' => 'directory'], function(){
     Route::get('/', [DirectoryController::class, 'index'])->name('services.index');
 });
+
+Route::group(['prefix' => 'barangay'], function(){
+    Route::get('/', [DirectoryController::class, 'index'])->name('barangay.index');
+});

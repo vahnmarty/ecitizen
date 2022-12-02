@@ -33,9 +33,10 @@ class BarangayResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('puroks_count')->counts('puroks')
             ])
             ->filters([
-                //
+                
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -69,12 +70,12 @@ class BarangayResource extends Resource
     }
 
     protected function getColumns(): int | array
-{
-    return 3;
-}
+    {
+        return 3;
+    }
 
-protected function getHeaderWidgetsColumns(): int | array
-{
-    return 3;
-}
+    protected function getHeaderWidgetsColumns(): int | array
+    {
+        return 3;
+    }
 }

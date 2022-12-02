@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Barangay extends Model
+class Purok extends Model
 {
     use HasFactory;
 
-    public function puroks()
+    public function barangay()
     {
-        return $this->hasMany(Purok::class);
+        return $this->belongsTo(Barangay::class);
     }
 }

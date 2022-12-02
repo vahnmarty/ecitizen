@@ -35,12 +35,13 @@ class DirectoryResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('name')->sortable(),
                 Tables\Columns\TextColumn::make('telephone'),
                 Tables\Columns\TextColumn::make('cellphone'),
                 Tables\Columns\TextColumn::make('address'),
-                Tables\Columns\TextColumn::make('barangay'),
+                Tables\Columns\TextColumn::make('barangay')->sortable(),
             ])
+            ->defaultSort('name')
             ->filters([
                 //
             ])
