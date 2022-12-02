@@ -2,16 +2,17 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\BarangayResource\Pages;
-use App\Filament\Resources\BarangayResource\RelationManagers;
-use App\Models\Barangay;
 use Filament\Forms;
-use Filament\Resources\Form;
-use Filament\Resources\Resource;
-use Filament\Resources\Table;
 use Filament\Tables;
+use App\Models\Barangay;
+use Filament\Resources\Form;
+use Filament\Resources\Table;
+use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\BarangayResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\BarangayResource\RelationManagers;
+use App\Filament\Resources\BarangayResource\Widgets\BarangayOverview;
 
 class BarangayResource extends Resource
 {
@@ -58,5 +59,22 @@ class BarangayResource extends Resource
             'create' => Pages\CreateBarangay::route('/create'),
             'edit' => Pages\EditBarangay::route('/{record}/edit'),
         ];
-    }    
+    } 
+    
+    public static function getWidgets(): array
+    {
+        return [
+            BarangayOverview::class,
+        ];
+    }
+
+    protected function getColumns(): int | array
+{
+    return 3;
+}
+
+protected function getHeaderWidgetsColumns(): int | array
+{
+    return 3;
+}
 }
