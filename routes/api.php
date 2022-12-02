@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ReportController;
 use App\Http\Controllers\Api\ServiceController;
+use App\Http\Controllers\Api\DirectoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +37,8 @@ Route::group(['prefix' => 'report'], function(){
 Route::group(['prefix' => 'services'], function(){
     Route::get('/search', [ServiceController::class, 'search'])->name('services.search');
     Route::get('/{id}-{slug?}', [ServiceController::class, 'show'])->name('services.show');
+});
+
+Route::group(['prefix' => 'directory'], function(){
+    Route::get('/', [DirectoryController::class, 'index'])->name('services.index');
 });
