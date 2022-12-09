@@ -13,20 +13,27 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    @livewireStyles
 </head>
 
 <body>
     <div class="font-sans antialiased text-gray-900">
 
-        <div class="relative overflow-hidden bg-white">
-            @include('includes.frontend.nav')
+        <div x-data="{ isOpen: false }" class="relative overflow-hidden bg-white">
+            @include('includes.frontend.burger')
 
-            {{ $slot }}
+            <div class="relative pt-6 pb-16 sm:pb-24 lg:pb-32">
+                @include('includes.frontend.nav')
+
+                {{ $slot }}
+            </div>
         </div>
-    </div>
-
 
     </div>
+
+    @livewireScripts
+
 </body>
 
 </html>
