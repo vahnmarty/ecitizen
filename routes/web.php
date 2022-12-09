@@ -23,6 +23,7 @@ Route::get('/', function () {
 });
 
 Route::get('about', [PageController::class, 'about'])->name('about');
+Route::get('hotlines', [PageController::class, 'hotlines'])->name('hotlines');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ReportController;
+use App\Http\Controllers\Api\HotlineController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\BarangayController;
 use App\Http\Controllers\Api\DirectoryController;
@@ -47,4 +48,10 @@ Route::group(['prefix' => 'directory'], function(){
 Route::group(['prefix' => 'barangay'], function(){
     Route::get('/', [BarangayController::class, 'index'])->name('barangay.index');
     Route::get('/{id}', [BarangayController::class, 'show'])->name('barangay.show');
+});
+
+Route::group(['prefix' => 'hotlines'], function(){
+    Route::get('/', [HotlineController::class, 'index'])->name('hotline.index');
+    Route::get('/categories', [HotlineController::class, 'categories'])->name('hotline.categories');
+    Route::get('/{category}', [HotlineController::class, 'show'])->name('hotline.show');
 });
