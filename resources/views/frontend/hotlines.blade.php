@@ -1,9 +1,10 @@
 <x-guest-layout>
-    <section class="py-12 wrapper">
+    <section x-data="{ category: null }" class="py-12 wrapper">
         <header>
             <div class="flex gap-4">
                 <h1 class="text-4xl font-bold">Hotline Directory</h1>
-                <select>
+                <select x-model="category">
+                    <option value="">-- All --</option>
                     @foreach(\App\Enums\HotlineCategory::asSelectArray() as $value => $key)
                     <option value="{{ $value }}">{{ $key }}</option>
                     @endforeach
@@ -13,7 +14,7 @@
         <section class="mt-8">
             <div class="grid grid-cols-3 gap-6">
                 @foreach($hotlines as $hotline)
-                <div class="p-8 border rounded-lg shadow-md">
+                <div x-show="category == null || category == {{ $hotline->hotline_category->value }}" class="p-8 border rounded-lg shadow-md">
                     <div class="flex">
                         <div class="w-32 h-32 overflow-hidden">
                             <img src="{{ asset('img/pnp.png') }}" class="w-auto h-32" alt="">
