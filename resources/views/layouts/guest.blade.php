@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full">
 
 <head>
     <meta charset="utf-8">
@@ -17,18 +17,17 @@
     @livewireStyles
 </head>
 
-<body>
-    <div class="font-sans antialiased text-gray-900">
+<body class="min-h-full">
+    <div class="h-full font-sans antialiased text-gray-900 bg-gray-100">
 
-        <div x-data="{ isOpen: false }" class="relative overflow-hidden bg-white">
-            @include('includes.frontend.burger')
+        <div x-data="{ isOpen: false }" class="relative py-6 overflow-hidden bg-white">
 
-            <div class="relative pt-6 pb-16 sm:pb-24 lg:pb-32">
+            <div>
                 @include('includes.frontend.nav')
-
-                {{ $slot }}
             </div>
         </div>
+
+        {{ $slot }}
 
     </div>
 

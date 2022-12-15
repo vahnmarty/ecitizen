@@ -9,6 +9,7 @@
                 </a>
                 <div class="flex items-center -mr-2 md:hidden">
                     <button type="button"
+                        x-on:click="isOpen = !isOpen"
                         class="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                         aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
@@ -55,6 +56,7 @@
                 </div>
                 <div class="-mr-2">
                     <button type="button"
+                        x-on:click="isOpen = !isOpen"
                         class="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                         <span class="sr-only">Close main menu</span>
                         <!-- Heroicon name: outline/x-mark -->

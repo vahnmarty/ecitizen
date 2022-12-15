@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\ReportEmergency;
 use App\Http\Controllers\PageController;
 use App\Http\Livewire\RespondentDashboard;
 use App\Http\Controllers\ProfileController;
@@ -24,6 +25,7 @@ Route::get('/', function () {
 
 Route::get('about', [PageController::class, 'about'])->name('about');
 Route::get('hotlines', [PageController::class, 'hotlines'])->name('hotlines');
+Route::get('emergency', ReportEmergency::class)->name('emergency');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
