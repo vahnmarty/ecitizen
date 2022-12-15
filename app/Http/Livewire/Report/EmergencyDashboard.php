@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Report;
 
 use Livewire\Component;
+use App\Models\EmergencyReport;
 
 class EmergencyDashboard extends Component
 {
@@ -15,7 +16,12 @@ class EmergencyDashboard extends Component
 
     public function mount()
     {
-        $this->getFakers();
+        $this->getReports();
+    }
+
+    public function getReports()
+    {
+        $this->alerts = EmergencyReport::get();
     }
 
     public function getFakers()
