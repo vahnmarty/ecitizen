@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\User\MyReports;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\ReportEmergency;
 use App\Http\Controllers\PageController;
@@ -25,7 +26,11 @@ Route::get('/', function () {
 
 Route::get('about', [PageController::class, 'about'])->name('about');
 Route::get('hotlines', [PageController::class, 'hotlines'])->name('hotlines');
-Route::get('emergency', ReportEmergency::class)->name('emergency');
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('emergency', ReportEmergency::class)->name('emergency');
+    Route::get('my-reports', MyReports::class);
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -20,7 +20,7 @@
 <body class="min-h-full">
     <div class="h-full font-sans antialiased text-gray-900 bg-gray-100">
 
-        <div x-data="{ isOpen: false }" class="relative py-6 overflow-hidden bg-white">
+        <div x-data="{ isOpen: false }" class="relative py-6 bg-white">
 
             <div>
                 @include('includes.frontend.nav')
@@ -32,6 +32,8 @@
     </div>
 
     @livewireScripts
+
+    @stack('scripts')
 
 </body>
 
