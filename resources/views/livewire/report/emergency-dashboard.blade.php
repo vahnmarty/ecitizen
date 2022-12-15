@@ -114,6 +114,6 @@
 
 @push('scripts')
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCY4kNnIYXOwi0uDYIwvEVkKO8-yU3jyr8"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key="></script>
 
 @endpush
