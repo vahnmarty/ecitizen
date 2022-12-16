@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('emergency_reports', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->json('useragent')->nullable();
+            $table->longtext('useragent')->nullable();
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
             $table->string('address')->nullable();

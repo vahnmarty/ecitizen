@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('service_id');
             $table->string('title');
-            $table->json('content');
+            $table->longtext('content');
             $table->timestamps();
         });
     }
