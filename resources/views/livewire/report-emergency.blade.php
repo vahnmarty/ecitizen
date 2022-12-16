@@ -1,4 +1,10 @@
-<div class="py-12">
+
+<x-slot name="header">
+    <header>
+        <h1 class="text-3xl font-bold">Report an Emergency</h1>
+    </header>
+</x-slot>
+<div class="pt-4 bg-white">
     <div x-data="{ 
             type: @entangle('type'), 
             enable: false, 
@@ -8,9 +14,6 @@
          }"
         class="wrapper">
         @if(!$is_done)
-        <header>
-            <h1 class="text-3xl font-bold">Report an Emergency</h1>
-        </header>
         <div class="mt-8">
             <form wire:submit.prevent="submit">
                 <div class="grid grid-cols-2 gap-2 lg:grid-cols-6 lg:gap-6">

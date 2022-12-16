@@ -30,6 +30,7 @@
         <div class="py-6">
             <div class="wrapper">
                 @yield('header')
+                {{ $header ?? '' }}
             </div>
         </div>
 

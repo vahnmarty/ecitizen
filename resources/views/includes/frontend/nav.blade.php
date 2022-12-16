@@ -4,7 +4,7 @@
             <div class="flex items-center justify-between w-full md:w-auto">
                 <a href="#">
                     <span class="sr-only">Your Company</span>
-                    <img class="w-auto h-8 sm:h-10" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                    <img class="w-auto h-8 sm:h-10" src="{{ url('img/logo.svg') }}"
                         alt="">
                 </a>
                 <div class="flex items-center -mr-2 md:hidden">
