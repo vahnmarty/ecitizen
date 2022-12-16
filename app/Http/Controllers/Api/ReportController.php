@@ -2,22 +2,34 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\EmergencyReport;
+use App\Http\Controllers\Controller;
 
 class ReportController extends Controller
 {
     public function emergency(Request $request)
     {
-        $request->validate([
-            'title' => 'required|max:255',
-            'sender' => 'required',
-            'latitude' => 'required',
-            'longitude' => 'required',
-            'geolocation' => 'nullable',
-            'message' => 'nullable',
+        $data = $request->validate([
+            'type' => 'required',
+            'description' => 'required',
+            'latitude' => 'nullable',
+            'longitude' => 'nullable',
+            'address' => 'nullable',
         ]);
 
-        return $request->all();
+        $user = $request->user();
+
+        $report = new EmergencyReport;
+        $report->user_id = $user->id;
+        $report->fill($data);
+        $report->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Report created successfully',
+            'status' => $report->status,
+            'data' => $report
+        ]);
     }
 }

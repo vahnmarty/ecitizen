@@ -52,7 +52,7 @@
                     </fieldset>
                     <fieldset class="mt-2">
                         <label for="">Write Description</label>
-                        <textarea wire:model="description" class="w-full mt-2 border-gray-200 rounded-md" rows="5"></textarea>
+                        <textarea wire:model="description" class="w-full mt-2 border-gray-200 rounded-md" rows="3"></textarea>
                     </fieldset>
                     <fieldset class="px-4 mt-4">
                         <label for="" class="flex items-center gap-4">

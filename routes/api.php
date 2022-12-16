@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\ReportController;
 use App\Http\Controllers\Api\HotlineController;
 use App\Http\Controllers\Api\ServiceController;
@@ -23,6 +25,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('login', [AuthController::class, 'login']);
+Route::post('register/phone', [AuthController::class, 'phoneRegister']);
+Route::post('register/verify', [AuthController::class, 'verify']);
+Route::post('register', [AuthController::class, 'register'])->middleware('auth:sanctum');
+
 
 Route::post('/tokens/create', function (Request $request) {
     $token = \App\Models\User::first()->createToken($request->token_name);
@@ -30,7 +37,7 @@ Route::post('/tokens/create', function (Request $request) {
     return ['token' => $token->plainTextToken];
 });
 
-Route::group(['prefix' => 'report'], function(){
+Route::group(['prefix' => 'report', 'middleware' => ['auth:sanctum']], function(){
 
     Route::post('/emergency', [ReportController::class, 'emergency'])->name('report.emergency');
     
@@ -42,7 +49,7 @@ Route::group(['prefix' => 'services'], function(){
 });
 
 Route::group(['prefix' => 'directory'], function(){
-    Route::get('/', [DirectoryController::class, 'index'])->name('services.index');
+    Route::get('/', [DirectoryController::class, 'index'])->name('directory.index');
 });
 
 Route::group(['prefix' => 'barangay'], function(){

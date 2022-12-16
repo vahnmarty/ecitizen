@@ -14,10 +14,21 @@ class EmergencyReport extends Model
         'type' => EmergencyType::class
     ];
 
+    protected $appends = ['status'];
+
     protected $guarded = [];
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getStatusAttribute()
+    {
+        if($this->verified_at){
+            return 'VERIFIED';
+        }
+
+        return 'PENDING';
     }
 }
