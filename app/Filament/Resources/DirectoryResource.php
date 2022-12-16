@@ -27,7 +27,8 @@ class DirectoryResource extends Resource
                 Forms\Components\TextInput::make('telephone'),
                 Forms\Components\TextInput::make('cellphone')->required(),
                 Forms\Components\TextInput::make('address')->required(),
-                Forms\Components\TextInput::make('barangay')->required(),
+                Forms\Components\TextInput::make('barangay'),
+                Forms\Components\TextInput::make('email')->email(),
             ]);
     }
 
