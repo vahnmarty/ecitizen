@@ -121,12 +121,9 @@ class AuthController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
 
-        $token = $user->createToken('access');
-
         return [
             'success' => true,
             'data' => $user,
-            'token' => $token->plainTextToken
         ];
     }
 }
