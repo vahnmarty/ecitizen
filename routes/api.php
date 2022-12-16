@@ -44,7 +44,7 @@ Route::group(['prefix' => 'report', 'middleware' => ['auth:sanctum']], function(
 });
 
 Route::group(['prefix' => 'services'], function(){
-    Route::get('/search', [ServiceController::class, 'search'])->name('services.search');
+    Route::get('/{search?}', [ServiceController::class, 'search'])->name('services.search');
     Route::get('/{id}-{slug?}', [ServiceController::class, 'show'])->name('services.show');
 });
 
