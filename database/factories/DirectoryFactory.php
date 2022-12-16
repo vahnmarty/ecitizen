@@ -22,6 +22,15 @@ class DirectoryFactory extends Factory
             'barangay' => fake()->city,
             'telephone' => fake()->tollFreePhoneNumber,
             'cellphone' => fake()->phoneNumber,
+            'email' => fake()->email,
+            'facebook_url' => fake()->url,
+            'facebook_username' => fake()->username,
+            'twitter_url' => fake()->url,
+            'twitter_username' => fake()->username,
+            'instagram_url' => fake()->url,
+            'instagram_username' => fake()->username,
+            'tiktok_url' => fake()->url,
+            'tiktok_username' => fake()->username,
         ];
     }
 }

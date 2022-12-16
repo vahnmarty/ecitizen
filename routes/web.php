@@ -26,6 +26,7 @@ Route::get('/', function () {
 
 Route::get('about', [PageController::class, 'about'])->name('about');
 Route::get('hotlines', [PageController::class, 'hotlines'])->name('hotlines');
+Route::get('directory', [PageController::class, 'directory'])->name('directory');
 
 Route::group(['middleware' => 'auth'], function(){
     Route::get('emergency', ReportEmergency::class)->name('emergency');

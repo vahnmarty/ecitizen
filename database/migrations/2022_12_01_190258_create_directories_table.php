@@ -20,6 +20,15 @@ return new class extends Migration
             $table->string('barangay')->nullable();
             $table->string('telephone')->nullable();
             $table->string('cellphone')->nullable();
+            $table->string('email')->nullable();
+            $table->string('facebook_url')->nullable();
+            $table->string('facebook_username')->nullable();
+            $table->string('twitter_url')->nullable();
+            $table->string('twitter_username')->nullable();
+            $table->string('instagram_url')->nullable();
+            $table->string('instagram_username')->nullable();
+            $table->string('tiktok_url')->nullable();
+            $table->string('tiktok_username')->nullable();
             $table->timestamps();
         });
     }

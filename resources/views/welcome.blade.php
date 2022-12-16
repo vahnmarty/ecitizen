@@ -10,7 +10,7 @@
                 <h3 class="mt-4 text-xl font-bold">Report an Emergency</h3>
             </a>
             <div class="grid gap-2 lg:col-span-2 lg:grid-cols-2 lg:gap-8">
-                <div class="flex flex-col p-8 text-white bg-yellow-500 rounded-md">
+                <a href="{{  url('hotlines') }}" class="flex flex-col p-8 text-white bg-yellow-500 rounded-md">
                     <div class="self-end">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="self-end w-16 h-16">
@@ -19,7 +19,7 @@
                         </svg>
                     </div>
                     <h3 class="mt-4 font-bold">Emergency Hotlines</h3>
-                </div>
+                </a>
                 <div class="flex flex-col p-8 text-white bg-green-500 rounded-md">
                     <div class="self-end">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -30,7 +30,7 @@
                     </div>
                     <h3 class="mt-4 font-bold">Online Payments</h3>
                 </div>
-                <div class="flex-col hidden p-8 text-white bg-purple-500 rounded-md lg:flex">
+                <a href="{{ url('about') }}" class="flex-col hidden p-8 text-white bg-purple-500 rounded-md lg:flex">
                     <div class="self-end">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="self-end w-16 h-16">
@@ -39,8 +39,8 @@
                         </svg>
                     </div>
                     <h3 class="mt-4 font-bold">LGU Profile</h3>
-                </div>
-                <div class="flex-col hidden p-8 text-white bg-blue-500 rounded-md lg:flex">
+                </a>
+                <a href="{{ url('directory') }}" class="flex-col hidden p-8 text-white bg-blue-500 rounded-md lg:flex">
                     <div class="self-end">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="self-end w-16 h-16">
@@ -49,7 +49,7 @@
                         </svg>
                     </div>
                     <h3 class="mt-4 font-bold">LGU Offices</h3>
-                </div>
+                </a>
             </div>
             <div class="grid grid-cols-2 col-span-2 gap-2 lg:hidden">
                 <div class="flex items-center p-4 text-white bg-purple-500 rounded-md">

@@ -53,7 +53,7 @@
 
     <div id="map" class="w-full h-screen"></div>
 
-    <div class="fixed inset-y-0 pr-32 right-0 min-w-[16rem] bg-transparent py-12 max-h-screen overflow-auto">
+    <div class="fixed inset-y-0 pl-32 left-0 min-w-[16rem] bg-transparent py-12 max-h-screen overflow-auto">
         <div class="grid grid-cols-1 gap-6">
             @foreach($alerts as $alert)
             <div x-on:click="openGoogleMap(`{{ $alert->address }}`)" class="p-5 shadow-lg rounded-md  bg-white w-[28rem] cursor-pointer">
@@ -114,6 +114,6 @@
 
 @push('scripts')
 
-<script src="https://maps.googleapis.com/maps/api/js?key="></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google.key') }}"></script>
 
 @endpush
