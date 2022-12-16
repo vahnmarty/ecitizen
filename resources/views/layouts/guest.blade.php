@@ -27,7 +27,14 @@
             </div>
         </div>
 
-        {{ $slot }}
+        <div class="py-6">
+            <div class="wrapper">
+                @yield('header')
+            </div>
+        </div>
+
+        {{ $slot ?? '' }}
+        @yield('content')
 
     </div>
 

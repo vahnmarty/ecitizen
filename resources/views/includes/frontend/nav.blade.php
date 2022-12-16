@@ -24,9 +24,11 @@
             <div class="hidden md:ml-10 md:block md:space-x-10">
                 <a href="{{ url('/') }}" class="font-medium text-gray-500 hover:text-gray-900">Home</a>
 
-                <a href="{{ url('about') }}" class="font-medium text-gray-500 hover:text-gray-900">LGU</a>
+                <a href="{{ url('about') }}" class="font-medium text-gray-500 hover:text-gray-900">About</a>
 
                 <a href="{{ url('hotlines') }}" class="font-medium text-gray-500 hover:text-gray-900">Hotlines</a>
+
+                <a href="{{ url('directory') }}" class="font-medium text-gray-500 hover:text-gray-900">Directory</a>
 
                 <a href="{{ url('online-payments') }}"
                     class="font-medium text-gray-500 hover:text-gray-900">Payments</a>
