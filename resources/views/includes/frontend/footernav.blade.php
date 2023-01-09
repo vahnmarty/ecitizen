@@ -1,4 +1,4 @@
-<div class="fixed bottom-0 left-0 right-0 z-50 bg-gray-100 shadow-[0px_16px_20px_10px_rgba(0,0,0,1)]">
+<div class="block lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-gray-100 shadow-[0px_16px_20px_10px_rgba(0,0,0,1)]">
     <div class="flex justify-between">
         <div class="flex w-full gap-2 px-6 py-4 cursor-pointer hover:bg-red-200">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-red-700">

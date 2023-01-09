@@ -20,11 +20,8 @@
 <body class="min-h-full">
     <div class="h-full font-sans antialiased text-gray-900 bg-gray-100">
 
-        <div x-data="{ isOpen: false }" class="relative py-6 bg-white">
-
-            <div>
-                @include('includes.frontend.nav')
-            </div>
+        <div x-data="{ isOpen: false }" class="relative">
+            @include('includes.frontend.nav')
         </div>
 
         <div class="py-6">
