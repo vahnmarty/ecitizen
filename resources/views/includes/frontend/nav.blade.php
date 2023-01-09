@@ -1,12 +1,18 @@
 <div>
-    <nav class="relative flex items-center justify-between px-4 mx-auto max-w-7xl sm:px-6" aria-label="Global">
-        <div class="flex items-center flex-1">
+    <nav class="relative px-4 mx-auto max-w-7xl sm:px-6" aria-label="Global">
+        <div class="flex items-center justify-between flex-1">
             <div class="flex items-center justify-between w-full md:w-auto">
                 <a href="{{ url('/') }}">
                     <span class="sr-only">Your Company</span>
                     <img class="w-auto h-8 sm:h-10" src="{{ url('img/logo.svg') }}"
                         alt="">
                 </a>
+
+
+                <div class="md:hidden">
+                    <h3 class="text-3xl font-bold">ecitizenph</h3>
+                </div>
+                
                 <div class="flex items-center -mr-2 md:hidden">
                     <button type="button" x-on:click="isOpen = !isOpen"
                         class="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"

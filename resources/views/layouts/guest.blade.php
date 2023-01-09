@@ -38,7 +38,9 @@
         @yield('content')
 
     </div>
-
+    <footer>
+        @include('includes.frontend.footernav')
+    </footer>
     @livewireScripts
 
     @stack('scripts')
