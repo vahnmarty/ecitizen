@@ -4,17 +4,23 @@
         <h1 class="text-3xl font-bold">Report an Emergency</h1>
     </header>
 </x-slot>
-<div class="pt-4 bg-white">
+<div class="py-4 bg-white">
     <div x-data="{ 
             type: @entangle('type'), 
-            enable: false, 
-            latitude: @entangle('latitude').lazy, 
-            longitude: @entangle('longitude').defere,
+            enable: true, 
+            latitude: @entangle('latitude'), 
+            longitude: @entangle('longitude'),
             address: @entangle('address').defer,
+            scrollTo(id){
+                document.getElementById(id).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
          }"
         class="wrapper">
         @if(!$is_done)
-        <div class="mt-8">
+        <div>
+            <p class="mb-2 ml-2 text-xl">You selected: <b>Fire</b></p>
             <form wire:submit.prevent="submit">
                 <div class="grid grid-cols-2 gap-2 lg:grid-cols-6 lg:gap-6">
                     <label 
@@ -22,7 +28,7 @@
                         class="flex flex-col items-center justify-center gap-3 p-8 bg-white border rounded-lg cursor-pointer hover:scale-100">
                         <x-heroicon-s-fire class="w-10 h-10 "/>
                         <p :class="type === '1' ? 'text-white font-bold' : 'text-gray-700' ">Fire</p>
-                        <input type="radio" x-model="type" value="1" class="hidden">
+                        <input type="radio" x-model="type" x-on:click="scrollTo('details')" value="1" class="hidden">
                     </label>
                     <div class="flex flex-col items-center justify-center gap-3 p-8 duration-300 ease-in scale-90 bg-white border rounded-lg cursor-pointer hover:scale-100">
                         <x-heroicon-o-truck class="w-10 h-10 text-blue-700"/>
@@ -45,10 +51,24 @@
                         <p>Other</p>
                     </div>
                 </div>
-                <div class="px-2 mt-8">
-                    <fieldset class="flex gap-4">
-                        <label for="">Location:</label>
-                        <input type="text" x-model="address" placeholder="Enter your address here">
+                <div class="px-2 mt-8" id="details">
+                    <fieldset class="space-y-2">
+                        <div class="flex">
+                            <label for="">Location</label>
+                            @if (!empty($_SERVER['HTTPS'])) {
+                            <button onclick="getLocation()"  type="button" class="inline-flex items-center px-3 py-1 ml-4 text-sm font-medium text-gray-600 bg-white border border-gray-300 rounded-md shadow-sm hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                                <!-- Heroicon name: mini/envelope -->
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 mr-2 text-red-500">
+                                    <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+                                  </svg>
+                                  
+                                Get Current Location
+                              </button>
+                            @else
+                            <p class="self-end text-xs text-red-600">*Cannot fetch your current location because of http issue.</p>
+                            @endif
+                        </div>
+                        <input type="text" class="w-full bg-white border-gray-300 rounded-md" x-model="address" placeholder="Enter your address here">
                     </fieldset>
                     <fieldset class="mt-2">
                         <label for="">Write Description</label>
@@ -57,11 +77,11 @@
                     <fieldset class="px-4 mt-4">
                         <label for="" class="flex items-center gap-4">
                             <input type="checkbox" x-model="enable">
-                            <span>I have agree to Terms and Conditions</span>
+                            <span>I have agreed to <a href="{{ url('terms') }}" class="underline" target="_blank">Terms and Conditions</a></span>
                         </label>
                     </fieldset>
                     <div class="flex mt-8">
-                        <button type="submit" class="btn-primary" :class="enable ? '' : 'opacity-50 cursor-not-allowed'" x-on:disabled="!enable">Submit Report</button>
+                        <button type="submit" class="block w-full btn-primary" :class="enable ? '' : 'opacity-50 cursor-not-allowed'" x-on:disabled="!enable">Submit Report</button>
                     </div>
                 </div>
             </form>
@@ -76,7 +96,7 @@
                       </svg>
                 </div>
                 <div class="flex justify-center mt-8">
-                    <a href="{{ url('user/reports') }}" class="btn-primary">View Reports</a>
+                    <a href="{{ url('my-reports') }}" class="btn-primary">View Reports</a>
                 </div>
             </div>
         </div>
@@ -86,10 +106,15 @@
 </div>
 
 @push('scripts')
-<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?key={{ config('services.google.key') }}"></script>
 
 <script>
-    getLocation();
+
+    document.addEventListener('livewire:load', function () {
+        // getLocation();
+    })
+    
+    
     function getLocation() {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);

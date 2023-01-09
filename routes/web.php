@@ -30,7 +30,7 @@ Route::get('directory', [PageController::class, 'directory'])->name('directory')
 
 Route::group(['middleware' => 'auth'], function(){
     Route::get('emergency', ReportEmergency::class)->name('emergency');
-    Route::get('my-reports', MyReports::class);
+    Route::get('my-reports', MyReports::class)->name('user-reports');
 });
 
 Route::get('/dashboard', function () {

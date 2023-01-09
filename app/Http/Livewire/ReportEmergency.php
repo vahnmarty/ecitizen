@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\EmergencyReport;
+use App\Services\GoogleMapsService;
 
 class ReportEmergency extends Component
 {
@@ -42,5 +43,13 @@ class ReportEmergency extends Component
     {
         $this->latitude = $lat;
         $this->longitude = $long;
+
+        $this->address = $this->reverseGeocoding();
+    }
+
+    public function reverseGeocoding()
+    {
+        $google = new GoogleMapsService();
+        return $google->reverseGeocoding($this->latitude, $this->longitude);
     }
 }
