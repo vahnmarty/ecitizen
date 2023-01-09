@@ -1,5 +1,26 @@
-<x-guest-layout>
-    <main class="py-12 wrapper">
+@extends('layouts.guest')
+
+@section('header')
+<header class="flex items-center justify-between">
+    @auth
+    <h3 class="text-2xl font-bold">Hi, Vahn Marty</h3>
+    @else
+    <h3 class="text-2xl font-bold">Hi, {{ config('identity.citizen') }}!</h3>
+    @endauth
+    <div class="text-right">
+       <p class="text-xs">{{ date('F d, Y') }}</p>
+       <p class="text-xs">{{ date('h:i a') }}</p>
+    </div>
+</header>
+@endsection
+
+@section('content')
+    <main class=" wrapper">
+        <form action="" class="mb-3">
+            <select class="w-full border-gray-300 rounded-md">
+                <option value="">I want to apply for...</option>
+            </select>
+        </form>
         <div class="grid grid-cols-2 gap-2 lg:grid-cols-3 lg:gap-8">
             <a href="{{ url('emergency') }}" class="flex flex-col justify-end p-8 text-white bg-red-500 rounded-lg">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -213,4 +234,4 @@
             </div>
         </div>
     </div>
-</x-guest-layout>
+@endsection
