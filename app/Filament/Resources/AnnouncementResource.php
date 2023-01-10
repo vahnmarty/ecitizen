@@ -36,6 +36,7 @@ class AnnouncementResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('thumbnail'),
                 Tables\Columns\TextColumn::make('title'),
                 Tables\Columns\BadgeColumn::make('status')
                     ->enum(ArticleStatus::asSelectArray())
