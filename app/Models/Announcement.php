@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\ArticleStatus;
+use App\Enums\AnnouncementType;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -17,6 +18,7 @@ class Announcement extends Model
 
     protected $casts = [
         'contents' => 'array',
+        'type' => AnnouncementType::class
     ];
 
     public function publish()

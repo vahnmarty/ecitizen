@@ -27,6 +27,7 @@ class AnnouncementResource extends Resource
             ->schema([
                 Forms\Components\Select::make('type')->options(AnnouncementType::asSelectArray()),
                 Forms\Components\TextInput::make('title')->required()->placeholder("Enter Title Here")->columnSpan('full'),
+                Forms\Components\TextArea::make('short_description')->required()->columnSpan('full'),
                 Forms\Components\RichEditor::make('contents')->required()->columnSpan('full'),
                 Forms\Components\FileUpload::make('thumbnail')
             ]);
